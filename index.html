@@ -7,100 +7,99 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
     <style>
-    body, html {
-      height: 100%;
-      font-family: "Inconsolata", sans-serif;
-    }
+      body, html {
+        height: 100%;
+        font-family: "Inconsolata", sans-serif;
+      }
 
-    .bgimg {
-      background-position: center;
-      background-size: cover;
-      background-image: url("logo.png");
-      min-height: 38%;
-    }
+      .bgimg {
+        background-position: center;
+        background-size: cover;
+        background-image: url("logo.png");
+        
+      }
 
-    .menu {
-      display: none;
-    }
-    
+      .menu {
+        display: none;
+      }
+      
+      .tab {
+        display: none;
+      }
+
+      .tabs {
+        text-align: center;
+        display: flex;
+      }
+
+      .tablinks {
+        flex: 1;
+        height: 100px;
+        background-color: #a9c4df;
+        border: 1px solid #090909;
+        cursor: pointer;
+        font-size: 48px;
+        font-weight: 900;
+      }
+
+      .tablinks:hover {
+        background-color: #ecece4;
+      }
     </style>
   </head>
-<body>
-
-<!-- Links (sit on top)
-<div class="w3-top">
-  <div class="w3-row w3-padding w3-black">
-    <div class="w3-col s3">
-      <a href="#" class="w3-button w3-block w3-black">HOME</a>
-    </div>
-    <div class="w3-col s3">
-      <a href="#about" class="w3-button w3-block w3-black">ABOUT</a>
-    </div>
-    <div class="w3-col s3">
-      <a href="#menu" class="w3-button w3-block w3-black">MENU</a>
-    </div>
-    <div class="w3-col s3">
-      <a href="#where" class="w3-button w3-block w3-black">WHERE</a>
-    </div>
-  </div>
-</div> -->
-
-<!-- Header with image -->
-<header class="bgimg w3-display-container w3-grayscale-min" id="home">
-  <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
-    <span class="w3-tag">Open from 6:00am to 1:00am</span>
-  </div>
-  <div class="w3-display-bottomright w3-center w3-padding-large">
-    <span class="w3-text-white">71/460 666</span>
-  </div>
-</header>
-
-<!-- Add a background color and large text to the whole page -->
-<div class="w3-sand w3-grayscale w3-large">
-
-<!-- About Container -->
-<div class="w3-container" id="about">
-  
-    <img src="pizzasaleh-min.jpg" style="width:100%;max-width:1000px" class="w3-margin-top">
-    <p><strong>Opening hours:</strong> Everyday from 6:00 am to 01:00 am.</p>
-    <p><strong>Phone:</strong>71/460 666</p>
-    <p><strong>Address:</strong>Beirut-Hay El Sellom, Almawaaf</p>
+  <body>
     
-  </div>
-</div>
+    <div class="tabs">
+      <button class="tablinks" onclick="openTab(event, 'homeTab')">PIZZA</button>
+      <button class="tablinks" onclick="openTab(event, 'menuTab')">مشاوي</button>
+    </div>
 
-<!-- Menu Container-->
+    <!-- Home Tab Content -->
+    <div id="homeTab" class="tab">
+        <div class="bgimg w3-display-container w3-grayscale-min" id="home">
+            <!-- <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
+              <span class="w3-tag">Open from 6:00am to 1:00am</span>
+            </div>
+            <div class="w3-display-bottomright w3-center w3-padding-large">
+              <span class="w3-text-white">71/460 666</span>
+            </div> -->
+    </div>
+  
+      <!-- About Container -->
+      <div class="w3-container" id="about">
+        <img src="pizzasaleh-min.jpg" style="width:100%;max-width:1000px" class="w3-margin-top">
+        <p><strong>Opening hours:</strong> Everyday from 6:00 am to 01:00 am.</p>
+        <p><strong>Phone:</strong> 71/460 666</p>
+        <p><strong>Address:</strong> Beirut-Hay El Sellom, Almawaaf</p>
+      </div>
+    </div>
 
-<!-- Contact/Area Container -->
+    <!-- Menu Tab Content -->
+    <div id="menuTab" class="tab">
+      <!-- Content for the Menu tab -->
+      <img src="mashewi.jpg" style="width:100%;max-width:1000px" class="w3-margin-top">
+        <p><strong>Phone:</strong> 71/238 654866</p>
+        <p><strong>Address:</strong> Beirut-Hay El Sellom, Almawaaf</p>
+    </div>
 
-
-<!-- End page content -->
-</div>
-
-<!-- Footer. This section contains an ad for W3Schools Spaces. You can leave it to support us
-<footer class="w3-center w3-light-grey w3-padding-48 w3-large">
-  <p>This website was made with W3schools Spaces. Make your own free website today!</p>
-  <a class="w3-button w3-round-xxlarge w3-dark-grey w3-margin-bottom" href="https://www.w3schools.com/spaces" target="_blank">Start now</a>
- </footer>
- <!-- Footer end. -->
-
-<script>
-// Tabbed Menu
-function openMenu(evt, menuName) {
-  var i, x, tablinks;
-  x = document.getElementsByClassName("menu");
-  for (i = 0; i < x.length; i++) {
-    x[i].style.display = "none";
-  }
-  tablinks = document.getElementsByClassName("tablink");
-  for (i = 0; i < x.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" w3-dark-grey", "");
-  }
-  document.getElementById(menuName).style.display = "block";
-  evt.currentTarget.firstElementChild.className += " w3-dark-grey";
-}
-document.getElementById("myLink").click();
-</script>
-
-</body>
+    <!-- JavaScript for tab switching -->
+    <script>
+      function openTab(evt, tabName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tab");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(tabName).style.display = "block";
+        evt.currentTarget.className += " active";
+      }
+  
+      // Initialize the first tab as active
+      document.getElementsByClassName("tablinks")[0].click();
+    </script>
+  </body>
 </html>
